@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,7 +143,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.7); /* 修改为透明70% */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -190,6 +191,24 @@
             }
         }
 
+        /* 定义放大后时间的缩放动画 */
+        @keyframes timeScale {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* 应用缩放动画到放大后的时间元素 */
+        #fullscreen-time {
+            animation: timeScale 2s infinite;
+        }
+
         /* 媒体查询，适配小屏幕设备 */
         @media (max-width: 768px) {
             .page-title {
@@ -224,6 +243,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- 页面标题 -->
     <div class="page-title">智能导航看板</div>
@@ -233,13 +253,13 @@
     <div class="card-grid">
         <a href="https://juejin.cn/column/7448224551277969447" class="card" target="_blank" rel="noopener noreferrer">《Docker笔记专栏》</a>
         <a href="https://www.yuque.com/xy12306/docker/gt611idl667ez0lv?singleDoc# 《Docker和k8s笔记合集》" class="card" target="_blank" rel="noopener noreferrer">《k8s笔记合集》</a>
-        <a href="https://xy12306-01.github.io" class="card" >👉👉 刷新页面 👈👈</a>
         <a href="https://www.jspoo.com/" class="card" target="_blank" rel="noopener noreferrer">《聚神铺导航》</a>
         <a href="https://www.yuque.com/xy12306/wvvv7e/pvr26q1x0ouenttg?singleDoc# 《实用网页合集》" class="card" target="_blank" rel="noopener noreferrer">《实用网页合集》</a>
         <a href="https://kdocs.cn/l/caIQQKIJ96K2" class="card" target="_blank" rel="noopener noreferrer">《windows优化工具》</a>
         <a href="https://hcnsseyzsztm.feishu.cn/wiki/NMOXwHvRoijRDSkBKUzcq25enzf" class="card" target="_blank" rel="noopener noreferrer">《服务器搭建笔记》</a>
         <a href="https://ai.com" class="card" target="_blank" rel="noopener noreferrer">《Deepseek》</a>
-        <a href="https://www.bilibili.com" class="card" target="_blank" rel="noopener noreferrer">《哔哩哔哩》</a>
+        <a href="https://xy12306-01.github.io/page02.html" class="card">👉👉 刷新页面 👈👈</a>
+        <a href="https://xy12306-01.github.io/page03.html" class="card">🔍🔍 刷新页面 🔍🔍</a>
     </div>
     <!-- 时间显示区域 -->
     <div class="time-display" id="time-display">
@@ -258,9 +278,10 @@
         // 更新时间函数
         const updateTime = () => {
             const d = new Date();
-            const time = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
-            document.getElementById('current-time').textContent = time;
-            document.getElementById('fullscreen-time').textContent = time;
+            const fullTime = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+            const currentTime = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+            document.getElementById('current-time').textContent = fullTime;
+            document.getElementById('fullscreen-time').textContent = currentTime; // 只显示当前时间（不显示年月日）
         };
 
         // 页面加载时更新时间
@@ -290,4 +311,5 @@
         });
     </script>
 </body>
+
 </html>

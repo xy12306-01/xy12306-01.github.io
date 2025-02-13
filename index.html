@@ -3,19 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>随机跳转</title>
-    <script>
-        // 定义三个目标页面的路径
-        const pages = ["page01.html", "page02.html", "page03.html"];
-
-        // 随机选择一个页面
-        const randomPage = pages[Math.floor(Math.random() * pages.length)];
-
-        // 跳转到随机选择的页面
-        window.location.href = randomPage;
-    </script>
+    <title>现代响应式个人网站</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <p>正在跳转，请稍候...</p>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="#home" class="logo">xy12306</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link">首页</a>
+            <a href="#work" class="nav-link">作品</a>
+            <a href="#tools" class="nav-link">友情链接</a>
+           <!-- <a href="#about" class="nav-link">关于</a>-->   
+            <a href="https://www.feishu.cn/invitation/page/add_contact/?token=093ue1bb-a775-4ec4-bb54-5359370c177d&amp;unique_id=Soq-NlmZE9hy6VG-BzpSnw==" 
+               class="nav-link" 
+               target="_blank">联系</a>
+        </div>
+    </nav>
+
+    <!-- 全屏英雄区 -->
+    <section class="hero" id="home">
+        <h1>xy12306的个人网页</h1>
+        <p>💻 创造前沿数字新体验 💻</p>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- 作品区 -->
+    <section class="work-section" id="work">
+        <h2 class="section-title">我的作品</h2>
+        <div class="card-grid">
+            <a href="https://www.yuque.com/xy12306/docker/gt611idl667ez0lv?singleDoc# 《Docker和k8s笔记合集》" class="card" target="_blank">
+                <img src="https://picsum.photos/301/200" alt="项目1">
+                <h3>Docker和k8s笔记合集</h3>
+                <p>▪ Docker和k8s笔记合集-语雀</p>
+            </a>
+            <a href="https://juejin.cn/post/7452652375342874624" class="card" target="_blank">
+                <img src="https://picsum.photos/302/200" alt="项目2">
+                <h3>CentOS 7 安装与配置 Docker </h3>
+                <p>▪ 适用于Centos 7</p>
+            </a>
+            <a href="https://juejin.cn/column/7448224551277969447" class="card" target="_blank">
+                <img src="https://picsum.photos/303/200" alt="项目3">
+                <h3>Docker笔记合集</h3>
+                <p>▪ 适用于Docker初学者</p>
+            </a>
+            <a href="https://juejin.cn/post/7456047754176643087" class="card" target="_blank">
+                <img src="https://picsum.photos/308/200" alt="项目4">
+                <h3>手把手教你搭建 Harbor 私有镜像仓库</h3>
+                <p>▪ 适用于Docker初学者</p>
+            </a>
+            <a href="https://www.yuque.com/xy12306/docker/neag8kmap3xywmg3?singleDoc# 《Docker国内镜像源/加速地址》" class="card" target="_blank">
+                <img src="https://picsum.photos/304/200" alt="项目5">
+                <h3>Docker国内镜像源/加速地址</h3>
+                <p>▪ Docker国内镜像源/加速地址-语雀</p>
+            </a>
+            <a href="https://webgame.one/#/" class="card" target="_blank">
+                <img src="https://picsum.photos/305/200" alt="项目6">
+                <h3>摸鱼网站-webgame.one</h3>
+                <p>网页游戏平台...</p>
+            </a>
+            <a href="https://kdocs.cn/l/caIQQKIJ96K2" class="card" target="_blank">
+                <img src="https://picsum.photos/306/200" alt="项目7">
+                <h3>Windows优化工具</h3>
+                <p>▪ 适用于Windows系统</p>
+            </a>
+            <a href="https://juejin.cn/post/7449325898703683595" class="card" target="_blank">
+                <img src="https://picsum.photos/307/200" alt="项目8">
+                <h3>Vmware虚拟机中安装CentOS7</h3>
+                <p>▪ 超详图文教程</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 工具推荐区 -->
+    <section class="tool-section" id="tools">
+        <div class="split-section">
+            <div>
+                <img src="https://picsum.photos/600/400" 
+                     alt="友情链接" 
+                     class="split-image"
+                     style="transform: rotate(-2deg)">
+            </div>
+            <div>
+                <h2 class="section-title">友情链接</h2>
+                <div class="tool-buttons">
+                    
+                    <a href="pages/page01.html#智能导航看板-笔记1" class="tool-button" target="_blank">
+                        <div style="font-size: 2rem;">💻</div>
+                        <div>
+                            <h3>智能导航看板1</h3>
+                            <p>笔记1</p>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page02.html#智能导航看板-笔记2" class="tool-button" target="_blank">
+                        <div style="font-size: 2rem;">🎨</div>
+                        <div>
+                            <h3>智能导航看板2</h3>
+                            <p>笔记2</p>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page03.html#智能导航看板-网页推荐" class="tool-button" target="_blank">
+                        <div style="font-size: 2rem;">⏱️</div>
+                        <div>
+                            <h3>智能导航看板-网页推荐</h3>
+                            <p>常用网页推荐</p>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page04.html#球球导航" class="tool-button" target="_blank">
+                        <div style="font-size: 2rem;">📚</div>
+                        <div>
+                            <h3>球球导航</h3>
+                            <p>常用网页推荐</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于区 -->
+<!--
+    <section class="about-section" id="about">
+        <div class="split-section">
+            <div class="profile-container">
+                <img src="https://picsum.photos/400/600" 
+                     alt="个人照片" 
+                     class="split-image">
+                <div class="skill-bubbles">
+                    <div class="bubble" style="--delay:0">UI/UX</div>
+                    <div class="bubble" style="--delay:0.2">前端开发</div>
+                    <div class="bubble" style="--delay:0.4">3D设计</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>关于我</h2>
+                <p class="about-text">拥有5年全栈开发经验的技术创作者...</p>
+                <div class="timeline">
+-->                       
+                    <!-- 时间线内容... -->
+<!--
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-date">2020-至今</div>
+                        <div class="timeline-content">
+                            <h3>高级全栈工程师</h3>
+                            <p>主导3个百万级项目</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-date">2018-2020</div>
+                        <div class="timeline-content">
+                            <h3>前端开发工程师</h3>
+                            <p>专注React开发</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+-->      
+    
+    <!-- 页脚 -->
+    <footer style="background: var(--text); color: white; text-align: center; padding: 1rem;">
+        <p id="copyright"></p>
+    </footer>
+
+    <script>
+        function updateCopyright() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+    const copyrightText = `© ${year}年${month}月${day}日 ${hours}:${minutes}:${seconds} 🔍 xy12306的个人网页--该网页图片为在线随机图片 🔍  `;
+            document.getElementById('copyright').textContent = copyrightText;
+        }
+
+        // 页面加载时更新时间
+        updateCopyright();
+
+        // 每秒更新一次时间
+        setInterval(updateCopyright, 1000);
+    </script>
+    
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

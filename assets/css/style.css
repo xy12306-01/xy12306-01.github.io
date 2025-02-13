@@ -1,0 +1,502 @@
+:root {
+    --primary: #6366f1;
+    --secondary: #ec4899;
+    --bg: #ffffff;
+    --text: #1f2937;
+    --nav-height: 60px;
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s;
+}
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text; /* 添加标准属性 */
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    animation: flow 2s infinite;
+}
+
+/* 全屏英雄区 */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: var(--nav-height);
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+}
+
+/* 分屏布局 */
+.split-section {
+    display: flex;
+    min-height: 80vh;
+    padding: 4rem 2rem;
+}
+
+.split-section > div {
+    flex: 1;
+    padding: 2rem;
+}
+
+.split-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.split-image:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* 作品区 */
+.work-section {
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* 卡片网格 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-10px) rotateX(10deg);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* 工具推荐区 */
+.tool-section {
+    padding: 4rem 2rem;
+    background: #f8fafc;
+}
+
+.tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tool-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tool-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tool-icon {
+    font-size: 2rem;
+}
+
+/* 关于区 */
+.about-section {
+    background: linear-gradient(to bottom right, #f8fafc, #ffffff);
+    padding: 4rem 0;
+}
+
+.profile-container {
+    position: relative;
+}
+
+.skill-bubbles {
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    display: flex;
+    gap: 1rem;
+}
+
+.bubble {
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
+.timeline {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--primary);
+}
+
+.timeline-item {
+    margin: 2rem 0;
+    padding-left: 3rem;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+}
+
+/* 页脚 */
+footer {
+    background: var(--text);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* 动画 */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .split-section {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - var(--nav-height));
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.98);
+        transition: right 0.3s ease;
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* 添加汉堡菜单图标 */
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: var(--text);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .hamburger span:nth-child(3) { bottom: 0; }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+
+    .card-grid,
+    .tool-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .skill-bubbles {
+        position: static;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+}
+
+/* 在原有样式基础上添加以下内容 */
+
+/* 作品区卡片响应式布局 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card img {
+        height: 150px; /* 缩小图片高度 */
+    }
+
+    .card h3 {
+        font-size: 1.2rem; /* 缩小标题字体 */
+    }
+
+    .card p {
+        font-size: 0.9rem; /* 缩小描述字体 */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* 单列布局 */
+        gap: 1rem;
+    }
+
+    .card img {
+        height: 120px; /* 进一步缩小图片高度 */
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.85rem;
+    }
+}
+
+/* 工具推荐区响应式布局 */
+.tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .tool-buttons {
+        grid-template-columns: 1fr; /* 单列布局 */
+        gap: 1rem;
+    }
+
+    .tool-button {
+        padding: 1rem; /* 缩小按钮内边距 */
+    }
+
+    .tool-icon {
+        font-size: 1.5rem; /* 缩小图标 */
+    }
+
+    .tool-button h3 {
+        font-size: 1.1rem; /* 缩小标题 */
+    }
+
+    .tool-button p {
+        font-size: 0.9rem; /* 缩小描述 */
+    }
+}
+
+/* 分屏布局响应式调整 */
+.split-section {
+    display: flex;
+    min-height: 80vh;
+    padding: 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .split-section {
+        flex-direction: column; /* 垂直堆叠 */
+        padding: 2rem 1rem;
+    }
+
+    .split-section > div {
+        padding: 1rem;
+    }
+
+    .split-image {
+        height: 300px; /* 缩小图片高度 */
+        border-radius: 0.5rem; /* 调整圆角 */
+    }
+
+    .tool-section .split-section {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .split-image {
+        height: 250px; /* 进一步缩小图片高度 */
+    }
+
+    .section-title {
+        font-size: 1.8rem; /* 缩小标题字体 */
+    }
+}
+

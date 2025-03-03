@@ -84,8 +84,27 @@ body {
     background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
+    will-change: background-position;
+    transform: translate3d(0,0,0);
 }
 
+.card:hover {
+    transform: translateY(-10px) rotateX(10deg) scale(1.02) translateZ(10px);
+}
+
+@keyframes gradient {
+    0% { 
+        background-position: 0% 50%;
+        transform: translate3d(0,0,0);
+    }
+    50% { 
+        background-position: 100% 50%; 
+    }
+    100% { 
+        background-position: 0% 50%;
+        transform: translate3d(0,0,0);
+    }
+}
 .hero h1 {
     color: white;
     font-size: 3rem;
@@ -173,8 +192,43 @@ body {
     display: block;
 }
 
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
 .card:hover {
-    transform: translateY(-10px) rotateX(10deg);
+    transform: translateY(-10px) rotateX(10deg) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.card img {
+    background: linear-gradient(135deg, #f0f2f5 25%, #e5e8ec 50%, #f0f2f5 75%);
+    background-size: 400% 400%;
+    animation: placeholderShimmer 2s linear infinite;
+}
+
+@keyframes placeholderShimmer {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .card img {
@@ -357,9 +411,42 @@ footer {
     .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
     .hamburger span:nth-child(3) { bottom: 0; }
 
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+    .hamburger.active span {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate3d(5px, 6px, 0);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate3d(5px, -6px, 0);
+    }
+
+    .nav-links {
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+        transform: translate3d(120%, 0, 0);
+        opacity: 0;
+    }
+
+    .nav-links.active {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+    .nav-link {
+        opacity: 0;
+        transform: translate3d(20px, 0, 0);
+        transition: all 0.4s ease;
+    }
+
+    .nav-links.active .nav-link {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition-delay: calc(0.1s * var(--i));
+    }
 
 
     .card-grid,

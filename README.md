@@ -43,17 +43,72 @@ HTML5 | CSS3 | JavaScript
 ```
 
 ## 维护指南 🔧
-### 页面更新
-1. 添加新HTML文件到pages目录
-2. 在index.html#tools区块添加导航按钮：
-```html
-<a href="pages/NEW_PAGE.html" class="tool-button">
-  <div style="font-size: 2rem;">🎯</div>
-  <div>
-    <h3>新页面名称</h3>
-    <p>功能描述</p>
-  </div>
-</a>
+### 维护流程图解 🗺️
+```mermaid
+graph TD
+  A[开始维护] --> B{变更类型}
+  B -->|页面更新| C[创建HTML文件]
+  B -->|链接更新| D[修改href属性]
+  B -->|样式调整| E[更新CSS变量]
+  C --> F[添加导航按钮]
+  D --> G[测试链接有效性]
+  E --> H[浏览器预览效果]
+  F --> I[提交版本更新]
+  G --> I
+  H --> I
+```
+
+### 标准化维护流程 📝
+1. **页面管理**
+   - 新增页面：使用标准化模板创建HTML文件
+   ```html
+   <!-- pages/模板页.html -->
+   <!DOCTYPE html>
+   <html lang="zh-CN">
+   <head>
+       <meta charset="UTF-8">
+       <link rel="stylesheet" href="../assets/css/style.css">
+   </head>
+   <body>
+       <!-- 页面内容区块 -->
+       <div class="container"></div>
+   </body>
+   </html>
+   ```
+
+2. **样式配置**
+   - 扩展CSS变量系统：
+   ```css
+   :root {
+     /* 基础配置 */
+     --primary-color: #1677ff;  /* 主品牌色 */
+     --text-primary: rgba(0, 0, 0, 0.88); /* 主要文字 */
+     
+     /* 新增间距系统 */
+     --space-sm: 8px;  /* 小间距 */
+     --space-md: 16px; /* 中间距 */
+   }
+   ```
+
+## 版本控制规范 🏷️
+### 版本号规则
+`主版本.次版本.修订版` 格式：
+- **主版本**：架构级变更
+- **次版本**：功能新增/优化  
+- **修订版**：问题修复
+
+### 更新日志模板
+```markdown
+## v1.2.0 - 2024-04-01
+### ✨ 新增功能
+- [导航] 新增AI工具导航看板
+- [样式] 支持暗黑模式切换
+
+### ⚙️ 优化改进
+- 提升移动端卡片点击区域
+
+### 🐛 问题修复
+- 修复iOS Safari渐变渲染异常
 ```
 
 ### 链接管理

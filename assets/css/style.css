@@ -185,11 +185,27 @@ body {
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    touch-action: manipulation;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
     display: block;
+}
+
+.card:active,
+.card:hover {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (hover: none) {
+    .card {
+        transition: transform 0.1s ease;
+    }
+    .card:active {
+        transform: scale(0.96);
+    }
 }
 
 .card {
@@ -470,9 +486,22 @@ footer {
 /* 作品区卡片响应式布局 */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
